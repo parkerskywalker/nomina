@@ -3,6 +3,7 @@ from apps.catalogos.pais.models import Pais
 
 from datetime import datetime
 
+"""
 class Estado(models.Model):
     nom_corto = models.CharField(max_length=3, null=False, unique=True, default='')
     pais = models.ForeignKey(Pais, default='', null=False, blank=False, on_delete=models.PROTECT)
@@ -13,3 +14,4 @@ class Estado(models.Model):
 
     def __str__(self):
         return '{} {}'.format(self.nom_corto, self.estado)
+"""        
