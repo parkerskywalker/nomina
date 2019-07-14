@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<title>Pais</title>
+
+<form action="" method="post">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Nombre corto </label>
+				<input class="form-control" type="text" name="nom_corto">
+			</div>
+			<div class="form-group">
+				<label>Pais</label>
+				<input class="form-control" type="text" name="pais">
+			</div>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</div>		
+		
+	</div>	
+</form>
+
+
+{% endblock %}

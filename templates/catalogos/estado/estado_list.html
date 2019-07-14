@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre corto</th>
+            <th>Pais</th>            
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+            {% for data in object_list %}
+        <tr>
+            <td>{{ data.id }}</td>
+            <td>{{ data.nom_corto }}</td>
+            <td>{{ data.estado }}</td>            
+            <td>
+                <a class="btn btn-primary" href="{% url 'edit_estado' data.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'delete_estado' data.id %}">Eliminar</a>
+            </td>
+        </tr>
+            {% endfor %}
+
+        {% else %}
+            <h1>No hay registros de Estados</h1>
+
+        {% endif %}
+    </tbody>
+</table>
+
+<div class="col-md-12 text-center">     
+    <a class="btn btn-info" href="{% url 'alta_estado' %}">Agregar</a>
+</div>
+
+{% endblock %}
