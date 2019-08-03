@@ -9,5 +9,6 @@ urlpatterns = [
 
     path('catalogos/pais/', include('apps.catalogos.pais.urls')),
     path('catalogos/estado/', include('apps.catalogos.estado.urls')),
+    path('catalogos/municipio/', include('apps.catalogos.municipio.urls')),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

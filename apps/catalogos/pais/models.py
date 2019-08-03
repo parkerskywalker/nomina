@@ -9,4 +9,4 @@ class Pais(models.Model):
 	status = models.BooleanField(default=True)
 
 	def __str__(self):
-		return '{} {}'.format(self.nom_corto, self.pais)
+		return '{}'.format(self.pais)

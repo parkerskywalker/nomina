@@ -20,6 +20,13 @@ class EstadoCreate(CreateView):
 	template_name = 'catalogos/estado/estado_form.html'
 	success_url = reverse_lazy('list_estado')
 
+	"""
+	def get_form_kwargs(self):
+		kwargs = super().get_form_kwargs()
+		kwargs.update({'request':self.request})
+		return kwargs
+	"""
+
 class EstadoUpdate(UpdateView):
 	model = Estado
 	form_class = EstadoForm

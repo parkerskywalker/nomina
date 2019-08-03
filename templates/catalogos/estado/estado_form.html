@@ -8,9 +8,9 @@
 	{% csrf_token %}
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<div class="form-group">
-				<label for="">Pais</label>
-				<input class="form-control" type="text" name="pais">
+			<div class="form-group">				
+				<label for="idPais">Pais</label>					
+					{{form.pais}}
 			</div>
 			<div class="form-group">
 				<label>Nombre corto </label>
@@ -21,6 +21,7 @@
 				<input class="form-control" type="text" name="estado">
 			</div>
 			<button type="submit" class="btn btn-primary">Guardar</button>
+			<a href="{% url 'list_estado' %}" class="btn btn-danger">Cancelar</a>
 		</div>		
 		
 	</div>	

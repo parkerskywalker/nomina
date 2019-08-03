@@ -12,9 +12,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6a2#vg-!gi_w^o3037z9inha6)o^o29$^!s^4cdiuid)2=td*b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True    #Para heroku se pasa a False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []    #para heroku: ALLOWED_HOST = ['*']
 
 
 # Application definition
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
     'apps.catalogos.pais',
     'apps.catalogos.estado',
+    'apps.catalogos.municipio',
 ]
 
 MIDDLEWARE = [
@@ -40,7 +41,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware', HEROKU
 ]
 
 ROOT_URLCONF = 'nomina.urls'
@@ -66,16 +67,20 @@ WSGI_APPLICATION = 'nomina.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-import dj_database_url
-from decouple import config
 
+#import dj_database_url
+#from decouple import config
+
+#HEROKU
+"""
 DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )
 }
+#HEROKU
 
-""" LOCALHOST
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -86,7 +91,6 @@ DATABASES = {
         'PORT':5432 
     }
 }
-"""
 
 
 
@@ -129,13 +133,13 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#HEROKU
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+#HEROKU
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-LOGIN_REDIRECT_URL = reverse_lazy('solicitud_listar')
-LOGOUT_REDIRECT_URL = reverse_lazy('login')
+#LOGIN_REDIRECT_URL = reverse_lazy('solicitud_listar')
+#LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
